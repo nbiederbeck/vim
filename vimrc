@@ -1,5 +1,9 @@
 " keys
 inoremap jk <ESC>
+nnoremap <C-J> <C-W>j
+nnoremap <C-H> <C-W>h
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
 
 " ui
 set number
