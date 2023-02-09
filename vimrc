@@ -11,16 +11,16 @@ set relativenumber
 set splitbelow
 set splitright
 
-" ui.syntax
-syntax enable
-filetype plugin indent on
-color delek
-
 " ui.hidden_symbols
 set list
 set listchars=tab:>-
+
+" ui.syntax
+syntax enable
+filetype plugin indent on
+set background=light
 hi SpecialKey ctermfg=0
-hi NonText ctermfg=0
+hi Nontext ctermfg=0
 
 " indentation
 set shiftwidth=4
@@ -38,11 +38,8 @@ set smartcase
 " statusline
 set laststatus=2
 
-" autoformat
-augroup autoformat
-	au BufWritePre  *.py set autoread
-	au BufWritePost *.py silent !black <afile> --quiet
-	au BufWritePost *.py e <afile>
-	au BufWritePost *.py set noautoread
-	au BufWritePost *.py syntax on
-augroup end
+" ui.color
+if !filereadable(expand('~/.vim/colors/nord.vim'))
+    silent execute '!curl -s https://raw.githubusercontent.com/arcticicestudio/nord-vim/main/colors/nord.vim -o ~/.vim/colors/nord.vim --create-dirs'
+endif
+colorscheme nord
